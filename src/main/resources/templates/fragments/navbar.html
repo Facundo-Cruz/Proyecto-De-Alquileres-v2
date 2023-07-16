@@ -1,0 +1,48 @@
+<header>
+    <div class="navbar" th:classappend="${session.usuariosession == null ? 'nav-not-logged' : ''}">
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="logo">
+            <a href="#">
+                <img src="/img/navbar/logo.svg" alt="logo" width="119px" height="38px">
+            </a>
+        </div>
+        <ul class="links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Publicar</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <a href="/login" class="action_btn" th:if="${session.usuariosession == null}">Iniciar Sesión</a>
+        <div class="user_btn" th:if="${session.usuariosession != null}">
+            <img src="/img/navbar/user.jpg" alt="user" class="img-user">
+            <p class="name_user">Julían Alvarez</p>
+            <img src="/img/navbar/arrow-right.svg" alt="arrow-right" class="arrow">
+        </div>
+        <div class="dropdown_user">
+            <div class="sub_menu">
+                <div class="user_info">
+                    <img src="/img/navbar/user.jpg" alt="img-user">
+                    <h2>Julián Alvarez</h2>
+                </div>
+                <hr>
+                <a href="#" class="sub_menu_link">
+                    <img src="/img/navbar/profile.png" alt="">
+                    <p>Editar Perfil</p>
+                    <span>></span>
+                </a>
+                <a href="/logout" class="sub_menu_link">
+                    <img src="/img/navbar/logout.png" alt="">
+                    <p>Salir</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>
+        <div class="dropdown_menu" th:classappend="${session.usuariosession == null ? 'menu-not-logged' : 'menu-logged'}">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Publicar</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="/login" class="action_btn">Iniciar Sesión</a></li>
+        </div>
+    </div>
+</header>
